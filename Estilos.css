@@ -1672,3 +1672,20 @@ body {
     vertical-align: middle;
     font-family: 'Press Start 2P', cursive;
 }
+
+
+/* ==========================================================================
+   RESPONSIVE: compatibilidad con pantallas celulares
+   ========================================================================== */
+@media (orientation: portrait),
+(max-width: 600px),
+(max-aspect-ratio: 1/1) {
+    #menu-screen {
+        background-image: url('IMG/cover_mobile.jpg');
+    }
+
+    .boton-jugar {
+        width: min(280px, 75vw);
+        height: 50px;
+    }
+}
