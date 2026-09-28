@@ -266,6 +266,9 @@ Conteolvl3 = 4
 //ESTA FUNCION EJECUTA UN CONJUNTO DE ACCIONES AL PRESIONAR JUGAR
 function PLAYlvl3() {
     document.getElementById("Fondo_Ciberpunk").play()
+
+    document.querySelector(".Contenedorlvl3").style.cursor = "url('IMG/cursor.png') 0 20, auto"
+    
     //MUEVE EL TITULO FUERA DEL CONTENEDOR UNA VEZ DE CLICK A JUGAR
     document.getElementById("Textolvl3").style.left = "-900px"
     //MUEVE AL BOTON PLAY TRANS PRESIONAR PRESIONAR AL MISMO BOTON
