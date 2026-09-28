@@ -778,6 +778,18 @@ body {
     margin-top: 0%;
 }
 
+
+.Dificultad_Pez_Globo {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+}
+
+.Globo_Pez_Gif {
+    width: 18%;
+}
+
 .Pollo {
     font-family: 'Press Start 2P', cursive;
     margin-top: 0%;
