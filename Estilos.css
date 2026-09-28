@@ -488,85 +488,448 @@ body {
 }
 
 
-/*SECCION REGLAS ------------------------------------------------------------------------------------------------------*/
-
-
+/* ==========================================================================
+   SECCION REGLAS (MANUAL DE COMBATE TÁCTICO) - REMAKE V2
+   ========================================================================== */
 
 #Reglas {
     position: absolute;
     inset: 0;
-    z-index: 100;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    transition: opacity 0.5s ease;
-}
-
-
-.Titulo_Reglas {
-    font-size: 2.4VW;
-    position: relative;
-    margin-top: 20px;
-    left: 2%;
-    font-family: 'Press Start 2P', cursive;
-}
-
-.Img_reglas {
-    margin-top: 1%;
-    margin-left: 2%;
-    width: 34%
-}
-
-.Reglas_estilos {
-    background: rgba(248, 248, 248, 0.521);
-    color: black;
-    border: 0.19vw solid black;
-    width: 40%;
-    height: auto;
-    position: absolute;
-    left: 58%;
-    font-size: 1.14vw;
-}
-
-#R1 {
-    top: -4%;
-}
-
-#R2 {
-    top: 38%;
-}
-
-#R3_4 {
-    top: 75%;
-}
-
-.Reglas_estilos h3 {
-    margin-left: 3%;
-    margin-right: 3%;
-    text-align: center;
-}
-
-.Reglas_estilos p {
-    margin-left: 3%;
-    margin-right: 3%;
-    text-align: center;
-}
-
-.Listo {
-    width: 34%;
-    height: 8vh;
-    background: rgb(100, 21, 146);
+    z-index: 160;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
+    background: rgba(3, 5, 14, 0.94);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: clamp(10px, 2vw, 24px);
+    opacity: 1;
+    transition: opacity 0.4s ease;
+}
+
+/* Contenedor Flotante Principal */
+.contenedor-reglas {
+    background: linear-gradient(145deg, #10152e, #070a18);
+    border: 2px solid var(--neon-blue);
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9), 0 0 35px rgba(0, 210, 255, 0.25);
+    width: 100%;
+    max-width: 1040px;
+    max-height: 94dvh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: fadeInReglas 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes fadeInReglas {
+    from {
+        opacity: 0;
+        transform: scale(0.96) translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Cabecera Táctica */
+.reglas-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 24px;
+    background: rgba(0, 0, 0, 0.55);
+    border-bottom: 1px solid var(--glass-border);
+    gap: 15px;
+}
+
+.reglas-header-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.reglas-tag {
+    font-family: var(--font-tech);
+    font-size: clamp(9px, 1.1vw, 12px);
+    letter-spacing: 2px;
+    color: var(--neon-blue);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.reglas-titulo {
+    font-family: var(--font-retro);
+    font-size: clamp(13px, 1.8vw, 18px);
+    color: #ffffff;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
+    margin: 0;
+}
+
+/* Badge de Estado */
+.reglas-badge-estado {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-tech);
+    font-size: clamp(10px, 1.1vw, 12px);
+    font-weight: 700;
+    color: var(--neon-red);
+    background: rgba(255, 42, 68, 0.12);
+    border: 1px solid rgba(255, 42, 68, 0.35);
+    padding: 6px 14px;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+
+.pulsar-luz {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--neon-red);
+    box-shadow: 0 0 10px var(--neon-red);
+    animation: pulsarReglas 1.4s infinite ease-in-out;
+}
+
+@keyframes pulsarReglas {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(0.75); }
+}
+
+/* Cuerpo de 2 Columnas */
+.reglas-body {
+    display: grid;
+    grid-template-columns: 1fr 1.25fr;
+    gap: 20px;
+    padding: clamp(12px, 2vw, 22px);
+    overflow-y: auto;
+    flex: 1;
+}
+
+/* Columna Izquierda: Radar / Captura Táctica */
+.reglas-col-tactica {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.marco-tactico-img {
     position: relative;
-    left: 2%;
-    top: 2vw;
-    font-size: 1.5vw;
-    font-family: 'Inconsolata', monospace;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 210, 255, 0.4);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7);
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img-tactica-reglas {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.marco-tactico-img:hover .img-tactica-reglas {
+    transform: scale(1.02);
+}
+
+.scanline-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+                linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+    background-size: 100% 4px, 6px 100%;
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.pie-tactico-img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(5, 7, 17, 0.88);
+    backdrop-filter: blur(4px);
+    padding: 6px 10px;
+    font-family: var(--font-tech);
+    font-size: 11px;
+    color: var(--neon-blue);
+    text-align: center;
+    border-top: 1px solid rgba(0, 210, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    letter-spacing: 1px;
+}
+
+.reglas-control-tip {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(0, 210, 255, 0.06);
+    border: 1px dashed rgba(0, 210, 255, 0.35);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 12px;
+    color: #cbd5e1;
+    font-family: var(--font-sans);
+    line-height: 1.4;
+}
+
+.reglas-control-tip i {
+    font-size: 20px;
+    color: var(--neon-yellow);
+    flex-shrink: 0;
+}
+
+.reglas-control-tip strong {
+    color: #ffffff;
+    display: block;
+    font-family: var(--font-tech);
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin-bottom: 2px;
+}
+
+/* Columna Derecha: Tarjetas de Directivas */
+.reglas-col-directivas {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.regla-card {
+    display: flex;
+    gap: 14px;
+    background: rgba(10, 14, 28, 0.8);
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    padding: 12px 16px;
+    transition: all 0.25s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.regla-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: var(--neon-blue);
+    opacity: 0.6;
+    transition: opacity 0.25s, width 0.25s;
+}
+
+.regla-card:hover {
+    background: rgba(16, 22, 44, 0.95);
+    border-color: rgba(0, 210, 255, 0.5);
+    transform: translateX(4px);
+    box-shadow: 0 4px 18px rgba(0, 210, 255, 0.15);
+}
+
+.regla-card:hover::before {
+    width: 6px;
+    opacity: 1;
+}
+
+/* Número de la Regla */
+.regla-numero {
+    font-family: var(--font-tech);
+    font-weight: 900;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--glass-border);
+    flex-shrink: 0;
+}
+
+.regla-num-1 { color: var(--neon-green); border-color: rgba(0, 255, 136, 0.4); }
+.regla-num-2 { color: var(--neon-yellow); border-color: rgba(255, 208, 0, 0.4); }
+.regla-num-3 { color: var(--neon-red); border-color: rgba(255, 42, 68, 0.4); }
+
+.regla-contenido {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.regla-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.regla-card-header h3 {
+    margin: 0;
+    font-family: var(--font-tech);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #ffffff;
+}
+
+.regla-badge-puntos,
+.regla-badge-tiempo,
+.regla-badge-peligro {
+    font-family: var(--font-tech);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.regla-badge-puntos {
+    background: rgba(0, 255, 136, 0.15);
+    color: var(--neon-green);
+    border: 1px solid rgba(0, 255, 136, 0.3);
+}
+
+.regla-badge-tiempo {
+    background: rgba(255, 208, 0, 0.15);
+    color: var(--neon-yellow);
+    border: 1px solid rgba(255, 208, 0, 0.3);
+}
+
+.regla-badge-peligro {
+    background: rgba(255, 42, 68, 0.15);
+    color: var(--neon-red);
+    border: 1px solid rgba(255, 42, 68, 0.3);
+}
+
+.regla-contenido p {
+    margin: 0;
+    font-size: 12.5px;
+    line-height: 1.5;
+    color: #cbd5e1;
+    text-align: left;
+}
+
+.regla-contenido p strong {
+    color: #ffffff;
+}
+
+/* Footer Táctico de Navegación */
+.reglas-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 24px;
+    background: rgba(0, 0, 0, 0.65);
+    border-top: 1px solid var(--glass-border);
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.btn-reglas-nav {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid var(--glass-border);
+    color: #94a3b8;
+    font-family: var(--font-tech);
+    font-size: 12px;
+    padding: 10px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-reglas-nav:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.35);
+}
+
+/* Botón Listo / Iniciar Misión (Sustituye y mejora .Listo conservando el ID "iniciar") */
+.btn-iniciar-mision,
+.Listo {
+    background: linear-gradient(135deg, #00d2ff, #3a7bd5);
+    color: #050711 !important;
+    font-family: var(--font-tech);
+    font-size: clamp(12px, 1.3vw, 15px);
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    padding: 12px 28px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    position: static; /* Anula posición absoluta previa */
+    width: auto;
+    height: auto;
+    top: auto;
+    left: auto;
+}
+
+.btn-iniciar-mision:hover,
+.Listo:hover {
+    background: linear-gradient(135deg, #33dcff, #508ee0);
+    box-shadow: 0 0 35px rgba(0, 210, 255, 0.7);
+    transform: translateY(-2px) scale(1.02);
+}
+
+.btn-iniciar-mision:active,
+.Listo:active {
+    transform: translateY(1px) scale(0.98);
+}
+
+/* Responsive para Pantallas Pequeñas / Celulares */
+@media (max-width: 820px) {
+    .reglas-body {
+        grid-template-columns: 1fr;
+        max-height: 65vh;
+    }
+
+    .marco-tactico-img {
+        max-height: 180px;
+    }
+
+    .img-tactica-reglas {
+        object-fit: contain;
+        max-height: 180px;
+    }
+
+    .reglas-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .reglas-footer {
+        flex-direction: column-reverse;
+    }
+
+    .btn-reglas-nav,
+    .btn-iniciar-mision,
+    .Listo {
+        width: 100%;
+        justify-content: center;
+    }
 }
 
 

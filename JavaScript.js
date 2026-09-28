@@ -193,6 +193,13 @@ iniciar.addEventListener("click", () => {
     control_visual(reglas, juego);
 });
 
+const btnReglasVolver = document.getElementById("btn-reglas-volver");
+if (btnReglasVolver) {
+    btnReglasVolver.addEventListener("click", () => {
+        control_visual(reglas, historia);
+    });
+}
+
 
 Tiempo = 71 //VARIBLE DE INICIO TIEMPO
 Puntaje = 0 //VARIABLE DE INICIO PUNTOS

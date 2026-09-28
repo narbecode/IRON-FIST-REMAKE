@@ -8,11 +8,10 @@
     <link rel="stylesheet" href="Estilos.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
         integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <!--iMPORTE UN TIPO DE LETA-->
+    <!-- FUENTES GOOGLE: Press Start 2P, Orbitron e Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;700;900&family=Press+Start+2P&display=swap" rel="stylesheet">
     <title>IRON FIST</title>
 </head>
 
@@ -48,51 +47,90 @@
         <!--SECCION - 3 ------------------------------------------------------------------------------------------------------->
 
         <section id="Reglas" class="hidden">
-            <h1 class="Titulo_Reglas">Antes de empezar lee,<br><br> las reglas.</h1>
-            <img src="IMG/JUEGO.jpg" class="Img_reglas">
-            <div class="Reglas_estilos" id="R1">
-                <h3>REGLA : 1</h3>
-                <p>Lo que se encuentra señalado son los puntos, que segun tu progreso, se irán incrementando al
-                    desviar
-                    meteoritos de la tierra (Esto al pasar el cursor sobre el meteorito que se acerca), si los
-                    puntos
-                    obtenidos
-                    llegan a 30, es una victoria automática, pero recuerda que los meteoritos son impredecibles en
-                    su
-                    ataque así que
-                    tienes que estar atento a su llegada
-                </p>
+            <div class="contenedor-reglas">
+                <!-- CABECERA TÁCTICA -->
+                <header class="reglas-header">
+                    <div class="reglas-header-info">
+                        <span class="reglas-tag"><i class="fas fa-shield-alt"></i> PROTOCOLO DE DEFENSA PLANETARIA</span>
+                        <h1 class="reglas-titulo">MANUAL DE COMBATE</h1>
+                    </div>
+                    <div class="reglas-badge-estado">
+                        <span class="pulsar-luz"></span>
+                        <span>ALERTA ROJA: SECTOR 1</span>
+                    </div>
+                </header>
+
+                <!-- CUERPO PRINCIPAL (2 COLUMNAS) -->
+                <div class="reglas-body">
+                    <!-- COLUMNA IZQUIERDA: RADAR / TÁCTICO -->
+                    <div class="reglas-col-tactica">
+                        <div class="marco-tactico-img">
+                            <img src="IMG/JUEGO.jpg" alt="Mapa táctico del juego" class="img-tactica-reglas">
+                            <div class="scanline-overlay"></div>
+                            <div class="pie-tactico-img">
+                                <i class="fas fa-crosshairs"></i> RADAR TÁCTICO DE CAMPO
+                            </div>
+                        </div>
+                        <div class="reglas-control-tip">
+                            <i class="fas fa-mouse-pointer"></i>
+                            <div>
+                                <strong>MÉTODO DE INTERCEPCIÓN:</strong>
+                                <span>Pasa el cursor del ratón sobre los asteroides en trayectoria para destruirlos antes del impacto.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- COLUMNA DERECHA: TARJETAS DE DIRECTIVAS -->
+                    <div class="reglas-col-directivas">
+                        <!-- DIRECTIVA 1 -->
+                        <div class="regla-card" id="R1">
+                            <div class="regla-numero regla-num-1">01</div>
+                            <div class="regla-contenido">
+                                <div class="regla-card-header">
+                                    <h3>META DE PUNTUACIÓN</h3>
+                                    <span class="regla-badge-puntos">30 PUNTOS = VICTORIA</span>
+                                </div>
+                                <p>Cada meteorito desviado incrementa tu marcador. Al alcanzar los <strong>30 puntos</strong> obtendrás la victoria del nivel automáticamente.</p>
+                            </div>
+                        </div>
+
+                        <!-- DIRECTIVA 2 -->
+                        <div class="regla-card" id="R2">
+                            <div class="regla-numero regla-num-2">02</div>
+                            <div class="regla-contenido">
+                                <div class="regla-card-header">
+                                    <h3>LÍMITE DE TIEMPO</h3>
+                                    <span class="regla-badge-tiempo">60 SEGUNDOS</span>
+                                </div>
+                                <p>El escudo defensivo orbital solo resistirá <strong>60 segundos</strong>. Si el cronómetro llega a cero antes de cumplir la meta, será <strong>GAME OVER</strong>.</p>
+                            </div>
+                        </div>
+
+                        <!-- DIRECTIVAS 3 & 4 -->
+                        <div class="regla-card" id="R3_4">
+                            <div class="regla-numero regla-num-3">03-04</div>
+                            <div class="regla-contenido">
+                                <div class="regla-card-header">
+                                    <h3>LÍNEA ROJA DE NO RETORNO</h3>
+                                    <span class="regla-badge-peligro">PERÍMETRO CRÍTICO</span>
+                                </div>
+                                <p>Los meteoritos atacan velozmente. La <strong>línea roja</strong> marca el límite de impacto: si un solo meteorito cruza este perímetro, la Tierra será destruida (<strong>GAME OVER</strong>).</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FOOTER DE NAVEGACIÓN Y ACCIÓN -->
+                <footer class="reglas-footer">
+                    <button class="btn-reglas-nav" id="btn-reglas-volver" type="button">
+                        <i class="fas fa-chevron-left"></i> RELEER CÓMIC
+                    </button>
+                    <button class="Listo btn-iniciar-mision" id="iniciar" type="button">
+                        <span>¿ESTÁS LISTO? // INICIAR</span>
+                        <i class="fas fa-bolt"></i>
+                    </button>
+                </footer>
             </div>
-
-
-            <div class="Reglas_estilos" id="R2">
-                <h3>REGLA : 2</h3>
-                <p>El tiempo que se señala es el límite máximo que puede aguantar la defensa, siendo unos 60
-                    segundos,
-                    en los que
-                    el jugador debe cumplir el límite de puntos o sera un GAMER OVER automático, asi que recuerda
-                    ser
-                    rápido recolectando
-                    puntos.
-                </p>
-            </div>
-
-
-            <div class="Reglas_estilos" id="R3_4">
-                <h3>REGLA : 3 y 4</h3>
-                <p>Estos son los meteoritos que debes evitar que ingresen a la tierra, por lo general suelen ser
-                    rápidos
-                    así que
-                    recuerda: no te descuides o confies por que en el momento que lo hagas, estos llegarán a la
-                    tierra,
-                    es por ello
-                    que una raya señala el límite por el cual ya es inevitable nuestra salvación (GAME OVER)
-                </p>
-            </div>
-
-            <div class="Listo" id="iniciar" type="button">¿Estas listo?</div>
-
-
         </section>
 
 
