@@ -1,268 +1,302 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Estilos.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-    <!-- FUENTES GOOGLE: Press Start 2P, Orbitron e Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;700;900&family=Press+Start+2P&display=swap" rel="stylesheet">
-    <title>IRON FIST</title>
-</head>
-
-<body>
-
-    <!--SECCION - CONTENEDOR GENERAL-------------------------------------------------------------->
-    <main id="game-app">
-
-        <!--INTRO-->
-
-
-
-        <section id="intro">
-            <div class="logo-box">
-                <img src="IMG/Logo_Omega.png" alt="Grupo Omega Logo" class="logo-img">
-                <h2 class="logo-title">GRUPO OMEGA</h2>
-                <p class="logo-text">P R E S E N T A</p>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+        <meta name="theme-color" content="#050711">
+        <link rel="stylesheet" href="Estilos.css?v=3.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@500;700;900&family=Press+Start+2P&display=swap" rel="stylesheet">
+        <title>IRON FIST</title>
+    </head>
+    <body>
+        <aside id="orientation-guard" role="status">
+            <div class="orientation-icon" aria-hidden="true">
             </div>
-            <button class="btn-skip" id="btn-skip" type="button">SALTAR INTRO &gt;&gt;</button>
-        </section>
-        <!--SECCION - MENÚ ------------------------------------------------------------------------------------------------------->
-
-        <section class="hidden" id="menu-screen">
-            <header class="menu-header"></header>
-            <nav class="lista-menu">
-                <button class="boton-jugar" type="button">
-                    <span class="texto-jugar">JUGAR</span></button>
-            </nav>
-            <footer class="menu-footer">
-                <span class="texto-footer">v2.0 &bull; Grupo 3</span>
-            </footer>
-        </section>
-        <!--SECCION - 3 ------------------------------------------------------------------------------------------------------->
-
-        <section id="Reglas" class="hidden">
-            <div class="contenedor-reglas">
-                <!-- CABECERA TÁCTICA -->
-                <header class="reglas-header">
-                    <div class="reglas-header-info">
-                        <span class="reglas-tag"><i class="fas fa-shield-alt"></i> PROTOCOLO DE DEFENSA PLANETARIA</span>
-                        <h1 class="reglas-titulo">MANUAL DE COMBATE</h1>
+            <h2>Gira tu dispositivo</h2>
+            <p>IRON FIST se juega en horizontal. Coloca la pantalla de lado para continuar la misión.</p>
+        </aside>
+        <main id="game-app">
+            <!-- Presentación del Grupo 3 con la composición de la versión original. -->
+            <section id="intro" class="pantalla screen-in" aria-label="Presentación de IRON FIST">
+                <div class="logo-box">
+                    <div class="group-emblem" aria-hidden="true"><span>3</span></div>
+                    <h2 class="logo-title">GRUPO 3</h2>
+                    <p class="logo-text">PRESENTA</p>
+                </div>
+                <button id="btn-skip-intro" class="btn-skip" type="button">SALTAR INTRO &gt;&gt;</button>
+            </section>
+            <section id="cinematica" class="pantalla hidden" inert aria-label="Cinemática de inicio">
+                <video id="intro-video" src="assets/video/intro_cinematica_iron_fist.mp4" preload="metadata" playsinline></video>
+                <button id="btn-skip-video" class="btn-skip" type="button">SALTAR CINEMÁTICA ››</button>
+            </section>
+            <section id="menu-screen" class="pantalla hidden" inert aria-label="Menú principal">
+                <header class="menu-header">
+                    <h1 id="menu-title">IRON FIST</h1>
+                </header>
+                <nav class="lista-menu">
+                    <button class="boton-jugar" type="button"><span class="texto-jugar">JUGAR</span></button>
+                </nav>
+                <footer class="menu-footer">
+                    <span class="texto-footer">v3.0 &bull; Grupo 3</span>
+                </footer>
+            </section>
+            <section id="historia" class="pantalla hidden" inert aria-label="Historia de IRON FIST">
+                <div class="contenedor-historia">
+                    <header class="historia-header">
+                        <span class="historia-titulo"></span>
+                        <div class="indicadores-historia" id="indicadores-historia">
+                            <span class="indicador-historia active"></span><span class="indicador-historia"></span><span class="indicador-historia"></span>
+                        </div>
+                    </header>
+                    <div class="historia-body">
+                        <img src="assets/imagenes/comic_01.jpg" alt="Viñeta 1: el descubrimiento" class="comic-image" id="comic-img">
+                        <div class="caja-texto">
+                            <p class="texto-comic"></p>
+                        </div>
                     </div>
-                    <div class="reglas-badge-estado">
-                        <span class="pulsar-luz"></span>
-                        <span>ALERTA ROJA: SECTOR 1</span>
+                    <footer class="footer-comic">
+                        <div class="comic-actions">
+                            <button class="btn-comic-nav" id="btn-comic-audio" type="button" aria-pressed="false">▶ NARRACIÓN</button>
+                            <button class="btn-comic-nav" id="btn-comic-skip" type="button">VOLVER AL MENÚ</button>
+                        </div>
+                        <div class="comic-actions">
+                            <button class="btn-comic-nav" id="btn-comic-prev" type="button">‹ ANTERIOR</button>
+                            <button class="btn-comic-nav" id="btn-comic-next" type="button">SIGUIENTE ›</button>
+                            <button class="btn-iniciar_juego hidden" id="btn-iniciar_juego" type="button">JUGAR</button>
+                        </div>
+                    </footer>
+                </div>
+            </section>
+            <section id="Reglas" class="pantalla hidden" inert aria-label="Manual de combate">
+                <div class="contenedor-reglas">
+                    <header class="reglas-header">
+                        <div class="reglas-header-info">
+                        <span class="reglas-tag">PROTOCOLO DE COMBATE</span>
+                            <h1 class="reglas-titulo">MANUAL DE COMBATE</h1>
+                        </div>
+                        <div class="reglas-badge-estado">
+                            <span class="pulsar-luz"></span><span>ALERTA ROJA: SECTOR 1</span>
+                        </div>
+                    </header>
+                    <div class="reglas-body">
+                        <div class="reglas-col-tactica">
+                            <div class="marco-tactico-img">
+                                <div class="radar-mini" aria-label="Meteoritos desde la izquierda. Nave y Tierra a la derecha.">
+                                    <span class="radar-limite"></span>
+                                    <div class="radar-tierra">
+                                        <img src="assets/imagenes/tierra_normal.png" alt="Tierra">
+                                    </div>
+                                    <div class="radar-nave">
+                                        <img src="assets/imagenes/nave_iron_fist.png" alt="Nave">
+                                    </div>
+                                    <div class="radar-meteorito radar-meteorito-1" style="left:22%;top:30%;width:13%">
+                                        <img src="assets/imagenes/meteorito_pequeno.png" alt="">
+                                    </div>
+                                    <div class="radar-meteorito radar-meteorito-2" style="left:45%;top:68%;width:18%">
+                                        <img src="assets/imagenes/meteorito_mediano.png" alt="">
+                                    </div>
+                                    <span class="radar-disparo"></span>
+                                </div>
+                                <div class="scanline-overlay">
+                                </div>
+                                <div class="pie-tactico-img">
+                                    RADAR TÁCTICO DE CAMPO
+                                </div>
+                            </div>
+                            <div class="reglas-control-tip">
+                                <div>
+                                    <strong>MÉTODO DE INTERCEPCIÓN</strong><span>PC: mueve el ratón arriba y abajo y dispara con clic. Móvil: arrastra la nave y pulsa DISPARAR con otro dedo.</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="reglas-col-directivas">
+                            <div class="regla-card" id="R1">
+                                <div class="regla-numero regla-num-1">
+                                    01
+                                </div>
+                                <div class="regla-contenido">
+                                    <div class="regla-card-header">
+                                        <h3>META DE PUNTUACIÓN</h3>
+                                        <span class="regla-badge-puntos">30 PUNTOS</span>
+                                    </div>
+                                    <p>Destruye <strong>30 meteoritos en cada nivel</strong>. Cada uno vale <strong>1 punto</strong> y resiste 1, 2 o 3 puños según su tamaño.</p>
+                                </div>
+                            </div>
+                            <div class="regla-card" id="R2">
+                                <div class="regla-numero regla-num-2">
+                                    02
+                                </div>
+                                <div class="regla-contenido">
+                                    <div class="regla-card-header">
+                                        <h3>LÍMITE DE TIEMPO</h3>
+                                        <span class="regla-badge-tiempo">60 SEGUNDOS</span>
+                                    </div>
+                                    <p>Completa la meta antes de que se agoten los <strong>60 segundos</strong>. Las oleadas aumentan su velocidad y presión en cada nivel.</p>
+                                </div>
+                            </div>
+                            <div class="regla-card" id="R3">
+                                <div class="regla-numero regla-num-3">
+                                    03
+                                </div>
+                                <div class="regla-contenido">
+                                    <div class="regla-card-header">
+                                        <h3>ESCUDO Y VIDA DEL PLANETA</h3>
+                                        <span class="regla-badge-peligro">3 + 3 IMPACTOS</span>
+                                    </div>
+                                    <p>El escudo absorbe <strong>3 impactos</strong>. Después la Tierra resiste <strong>3 más</strong>. Las cargas, vidas y daños se conservan entre niveles.</p>
+                                </div>
+                            </div>
+                            <div class="regla-card" id="R4">
+                                <div class="regla-numero regla-num-3">
+                                    04
+                                </div>
+                                <div class="regla-contenido">
+                                    <div class="regla-card-header">
+                                        <h3>ZONA DE DEFENSA</h3>
+                                        <span class="regla-badge-peligro">LÍNEA ROJA</span>
+                                    </div>
+                                    <p>La nave permanece a la derecha de la línea roja y dispara puños hacia la izquierda. Si pierdes, reinicias desde el <strong>nivel 1</strong>.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <footer class="reglas-footer">
+                        <button class="btn-reglas-nav" id="btn-reglas-volver" type="button">‹ RELEER CÓMIC</button>
+                        <button class="Listo btn-iniciar-mision" id="iniciar" type="button"><span>¿ESTÁS LISTO? // INICIAR</span></button>
+                    </footer>
+                </div>
+            </section>
+            <section id="Seccion_Juego" class="pantalla Seccion_Juego hidden" inert aria-label="Partida de IRON FIST">
+                <div class="crt-scanlines" aria-hidden="true">
+                </div>
+                <div id="campo-orbital" tabindex="0" role="group" aria-label="Mueve la nave arriba y abajo. Clic o espacio dispara un puño. P pausa.">
+                    <div id="estrellas" aria-hidden="true">
+                    </div>
+                    <div id="perimetro" aria-hidden="true">
+                    </div>
+                    <div id="tierra" data-dano="0" aria-hidden="true">
+                        <img src="assets/imagenes/tierra_normal.png" alt="">
+                        <div class="arco-escudo">
+                        </div>
+                        <div class="escudo-roto hidden">
+                        </div>
+                    </div>
+                    <div id="meteoritos" aria-hidden="true">
+                    </div>
+                    <div id="proyectiles" aria-hidden="true">
+                    </div>
+                    <div id="nave" aria-hidden="true">
+                        <div class="propulsion">
+                        </div>
+                        <img class="nave-sprite" src="assets/imagenes/nave_iron_fist.png" alt="">
+                    </div>
+                    <div id="efectos" aria-hidden="true">
+                    </div>
+                </div>
+                <header id="hud-top" aria-label="Estado de la partida">
+                    <div class="mode-badge" id="badge-title">
+                        LVL 1: FÁCIL
+                    </div>
+                    <div class="bar-container" title="Tres impactos absorbidos por el escudo">
+                        <span class="bar-label">ESCUDO <span id="shield-pct">3 / 3</span></span>
+                        <div class="bar-track">
+                            <div class="shield-fill" id="shield-fill">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bar-container life-container" title="Tres vidas después de romperse el escudo">
+                        <span class="bar-label">TIERRA <span id="life-value">3 / 3</span></span>
+                        <div class="lives-bar">
+                            <span class="life-pip"></span><span class="life-pip"></span><span class="life-pip"></span>
+                        </div>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-label">DESTRUIDOS</span><span class="stat-val" id="hud-pts">0 / 30</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-label">TIEMPO</span><span class="stat-val" id="hud-time">60</span>
+                    </div>
+                    <div class="hud-actions">
+                        <button class="menu-btn" id="btn-menu" type="button" aria-label="Abrir menú y pausar">Ⅱ MENÚ</button>
+                        <button class="icon-btn" id="btn-mute" type="button" aria-label="Silenciar sonido" aria-pressed="false">♪</button>
                     </div>
                 </header>
-
-                <!-- CUERPO PRINCIPAL (2 COLUMNAS) -->
-                <div class="reglas-body">
-                    <!-- COLUMNA IZQUIERDA: RADAR / TÁCTICO -->
-                    <div class="reglas-col-tactica">
-                        <div class="marco-tactico-img">
-                            <img src="IMG/JUEGO.jpg" alt="Mapa táctico del juego" class="img-tactica-reglas">
-                            <div class="scanline-overlay"></div>
-                            <div class="pie-tactico-img">
-                                <i class="fas fa-crosshairs"></i> RADAR TÁCTICO DE CAMPO
-                            </div>
+                <span class="touch-hint">ARRASTRA PARA MOVER</span>
+                <button id="btn-disparar" type="button" aria-label="Disparar puño cinético"><img src="assets/imagenes/puno_cinetico.png" alt="">DISPARAR</button>
+                <div id="countdown-overlay" class="hidden" role="status" aria-live="polite">
+                    <span class="countdown-text" id="countdown-text">3</span>
+                </div>
+                <section id="modal-menu-ingame" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="titulo-menu" tabindex="-1">
+                    <div class="modal-window">
+                        <h2 class="modal-header" id="titulo-menu">PARTIDA EN PAUSA</h2>
+                        <div class="menu-options-grid">
+                            <button class="menu-option-btn" id="btn-menu-resume" type="button">REANUDAR PARTIDA</button>
+                            <button class="menu-option-btn" id="btn-menu-restart" type="button">REINICIAR DESDE NIVEL 1</button>
+                            <button class="menu-option-btn" id="btn-menu-exit" type="button">VOLVER AL MENÚ</button>
                         </div>
-                        <div class="reglas-control-tip">
-                            <i class="fas fa-mouse-pointer"></i>
+                    </div>
+                </section>
+                <section id="modal-win" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="titulo-victoria" tabindex="-1">
+                    <div class="modal-window">
+                        <span class="result-emblem" aria-hidden="true">★</span>
+                        <h2 class="modal-header" id="titulo-victoria">¡NIVEL <span id="win-level-lbl">1</span> SUPERADO!</h2>
+                        <p class="mensaje-resultado">La Tierra sigue en pie. La defensa continúa con las cargas y vidas restantes.</p>
+                        <div class="resumen-nivel">
                             <div>
-                                <strong>MÉTODO DE INTERCEPCIÓN:</strong>
-                                <span>Pasa el cursor del ratón sobre los asteroides en trayectoria para destruirlos antes del impacto.</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- COLUMNA DERECHA: TARJETAS DE DIRECTIVAS -->
-                    <div class="reglas-col-directivas">
-                        <!-- DIRECTIVA 1 -->
-                        <div class="regla-card" id="R1">
-                            <div class="regla-numero regla-num-1">01</div>
-                            <div class="regla-contenido">
-                                <div class="regla-card-header">
-                                    <h3>META DE PUNTUACIÓN</h3>
-                                    <span class="regla-badge-puntos">30 PUNTOS = VICTORIA</span>
+                                <div class="stat-label">
+                                    PUNTOS
                                 </div>
-                                <p>Cada meteorito desviado incrementa tu marcador. Al alcanzar los <strong>30 puntos</strong> obtendrás la victoria del nivel automáticamente.</p>
-                            </div>
-                        </div>
-
-                        <!-- DIRECTIVA 2 -->
-                        <div class="regla-card" id="R2">
-                            <div class="regla-numero regla-num-2">02</div>
-                            <div class="regla-contenido">
-                                <div class="regla-card-header">
-                                    <h3>LÍMITE DE TIEMPO</h3>
-                                    <span class="regla-badge-tiempo">60 SEGUNDOS</span>
+                                <div class="stat-val" id="win-pts">
+                                    30
                                 </div>
-                                <p>El escudo defensivo orbital solo resistirá <strong>60 segundos</strong>. Si el cronómetro llega a cero antes de cumplir la meta, será <strong>GAME OVER</strong>.</p>
                             </div>
-                        </div>
-
-                        <!-- DIRECTIVAS 3 & 4 -->
-                        <div class="regla-card" id="R3_4">
-                            <div class="regla-numero regla-num-3">03-04</div>
-                            <div class="regla-contenido">
-                                <div class="regla-card-header">
-                                    <h3>LÍNEA ROJA DE NO RETORNO</h3>
-                                    <span class="regla-badge-peligro">PERÍMETRO CRÍTICO</span>
+                            <div>
+                                <div class="stat-label">
+                                    TIEMPO RESTANTE
                                 </div>
-                                <p>Los meteoritos atacan velozmente. La <strong>línea roja</strong> marca el límite de impacto: si un solo meteorito cruza este perímetro, la Tierra será destruida (<strong>GAME OVER</strong>).</p>
+                                <div class="stat-val" id="win-time">
+                                    0 s
+                                </div>
                             </div>
                         </div>
+                        <button class="action-btn" id="btn-next-stage" type="button">SIGUIENTE FASE ›</button>
                     </div>
-                </div>
-
-                <!-- FOOTER DE NAVEGACIÓN Y ACCIÓN -->
-                <footer class="reglas-footer">
-                    <button class="btn-reglas-nav" id="btn-reglas-volver" type="button">
-                        <i class="fas fa-chevron-left"></i> RELEER CÓMIC
-                    </button>
-                    <button class="Listo btn-iniciar-mision" id="iniciar" type="button">
-                        <span>¿ESTÁS LISTO? // INICIAR</span>
-                        <i class="fas fa-bolt"></i>
-                    </button>
-                </footer>
-            </div>
-        </section>
-
-
-
-        <!--SECCION - 4 ------------------------------------------------------------------------------------------------------->
-
-        <section id="historia" class="hidden">
-            <div class="contenedor-historia">
-                <div class="historia-header">
-                    <span class="historia-titulo">
-                        CAPÍTULO I: EL DESCUBRIMIENTO
-                    </span>
-                    <div class="indicadores-historia" id="indicadores-historia">
-                        <div class="indicador-historia active"></div>
-                        <div class="indicador-historia"></div>
-                        <div class="indicador-historia"></div>
+                </section>
+                <section id="modal-gameover" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="titulo-derrota" tabindex="-1">
+                    <div class="modal-window derrota-window">
+                        <span class="result-emblem" aria-hidden="true">⚠</span>
+                        <h2 class="modal-header" id="titulo-derrota">DEFENSA COLAPSADA</h2>
+                        <p id="gameover-reason" class="mensaje-resultado"></p>
+                        <p id="gameover-score" class="resultado-puntos"></p>
+                        <button class="action-btn" id="btn-retry-stage" type="button">REINTENTAR DESDE NIVEL 1</button>
+                        <button class="salir-resultado" id="btn-derrota-menu" type="button">VOLVER AL MENÚ</button>
                     </div>
-                </div>
-                <div class="historia-body">
-                    <img src="IMG/comic_01.jpg" alt="Comic 1" class="comic-image" id="comic-img">
-                    <div class="caja-texto">
-                        <p class="texto-comic">Cargando viñeta...</p>
+                </section>
+                <section id="modal-final" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="titulo-final" tabindex="-1">
+                    <div class="modal-window final-window">
+                        <span class="result-emblem" aria-hidden="true">✦</span>
+                        <h2 class="modal-header" id="titulo-final">¡VICTORIA TOTAL!</h2>
+                        <h3 class="modal-sub">GRUPO 03 · IRON FIST</h3>
+                        <p class="mensaje-resultado">Superaste los tres niveles. La tormenta terminó y la Tierra está a salvo.</p>
+                        <div class="creditos-equipo">
+                            <h4>EQUIPO DE DESARROLLO</h4>
+                            <div class="team-list" id="ending-team">
+                            </div>
+                        </div>
+                        <button class="action-btn" id="btn-play-again" type="button">JUGAR DE NUEVO</button>
+                        <button class="salir-resultado" id="btn-volver-menu" type="button">VOLVER AL MENÚ PRINCIPAL</button>
                     </div>
-                </div>
-                <div class="footer-comic">
-                    <div style="display: flex; gap: 10px; align-items: center;">
-                        <button class="btn-comic-nav" id="btn-comic-audio" type="button">
-                            <i class="fas fa-volume-high" id="comic-audio-icon"></i> Narración
-                        </button>
-                        <button class="btn-comic-nav" id="btn-comic-skip" type="button" style="color: #94a3b8;">
-                            Volver al Menú
-                        </button>
-                    </div>
-                    <div style="display: flex; gap: 10px; align-items: center;">
-                        <button class="btn-comic-nav" id="btn-comic-prev" type="button">
-                            <i class="fas fa-chevron-left"></i> Anterior
-                        </button>
-                        <button class="btn-comic-nav" id="btn-comic-next" type="button"
-                            style="border-color: var(--neon-blue); color: var(--neon-blue);">
-                            Siguiente <i class="fas fa-chevron-right"></i>
-                        </button>
-                        <button class="btn-iniciar_juego" id="btn-iniciar_juego" type="button">
-                            JUGAR
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-        </section>
-
-
-        <!-- PARTIDA: interfaz del v2, meteoritos y reglas del juego original. -->
-        <section id="Seccion_Juego" class="Seccion_Juego hidden" aria-label="Partida de IRON FIST">
-            <div class="crt-scanlines" aria-hidden="true"></div>
-            <!-- Campo HTML: fondo, Tierra y botones con la imagen original del meteorito. -->
-            <div id="campo-orbital" tabindex="0" role="group" aria-label="Pasa el ratón, toca o desliza sobre los meteoritos. Espacio desvía el más cercano. P abre el menú.">
-                <div id="estrellas" aria-hidden="true"></div>
-                <div id="perimetro" aria-hidden="true"></div>
-                <div id="tierra" aria-hidden="true"><img src="IMG/planeta_tierra.png" alt=""><div class="arco-escudo"></div></div>
-                <div id="meteoritos"></div>
-            </div>
-            <!-- Cabecera flotante del v2: misma distribución, tipografías y paleta. -->
-            <header id="hud-top" aria-label="Estado de la partida">
-                <div class="mode-badge" id="badge-title">LVL 1: PEZ GLOBO</div>
-                <div class="bar-container" title="El escudo resiste hasta 3 impactos de meteoritos">
-                    <span class="bar-label">ESCUDO <span id="shield-pct">100%</span></span>
-                    <div class="bar-track"><div class="shield-fill" id="shield-fill"></div></div>
-                </div>
-                <div class="stat-box"><span class="stat-label">DESVIADOS</span><span class="stat-val" id="hud-pts">0 / 30</span></div>
-                <div class="stat-box"><span class="stat-label">TIEMPO</span><span class="stat-val" id="hud-time">60</span></div>
-                <div style="display:flex;gap:8px">
-                    <button class="menu-btn" id="btn-menu" type="button" aria-label="Abrir menú y pausar"><i class="fas fa-bars" aria-hidden="true"></i> MENÚ</button>
-                    <button class="icon-btn" id="btn-mute" type="button" aria-label="Silenciar sonido" aria-pressed="false"><i class="fas fa-volume-up" id="mute-icon" aria-hidden="true"></i></button>
-                </div>
-            </header>
-            <!-- La cuenta usa el reloj de la partida y puede pausarse sin temporizadores residuales. -->
-            <div id="countdown-overlay" class="hidden" role="status" aria-live="polite"><span class="countdown-text" id="countdown-text">3</span></div>
-            <!-- Únicamente las dos acciones solicitadas. Abrir este menú congela la partida. -->
-            <section id="modal-menu-ingame" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="titulo-menu" tabindex="-1">
-                <div class="modal-window" style="max-width:480px">
-                    <h2 class="modal-header" id="titulo-menu">MENÚ</h2>
-                    <div class="menu-options-grid">
-                        <button class="menu-option-btn" id="btn-menu-resume" type="button" style="border-color:var(--neon-blue);color:var(--neon-blue)"><i class="fas fa-play" aria-hidden="true"></i> REANUDAR PARTIDA</button>
-                        <button class="menu-option-btn" id="btn-menu-restart" type="button"><i class="fas fa-redo" aria-hidden="true"></i> REINICIAR PARTIDA</button>
-                    </div>
-                </div>
+                </section>
             </section>
-            <!-- Felicitación al terminar cada nivel, con el resultado conservado. -->
-            <section id="modal-win" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="titulo-victoria" tabindex="-1">
-                <div class="modal-window">
-                    <i class="fas fa-trophy" style="font-size:46px;color:var(--neon-yellow)" aria-hidden="true"></i>
-                    <h2 class="modal-header" id="titulo-victoria" style="color:var(--neon-green)">¡NIVEL <span id="win-level-lbl">1</span> SUPERADO!</h2>
-                    <p class="mensaje-resultado">¡Felicitaciones! Protegiste la Tierra. Prepárate para la siguiente fase.</p>
-                    <div class="resumen-nivel"><div><div class="stat-label">PUNTOS</div><div class="stat-val" id="win-pts">30</div></div><div><div class="stat-label">TIEMPO RESTANTE</div><div class="stat-val" id="win-time">0 s</div></div></div>
-                    <button class="action-btn" id="btn-next-stage" type="button">SIGUIENTE FASE <i class="fas fa-arrow-right" aria-hidden="true"></i></button>
-                </div>
-            </section>
-            <!-- Un impacto o el tiempo agotado muestran su causa; el usuario decide reintentar. -->
-            <section id="modal-gameover" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="titulo-derrota" tabindex="-1">
-                <div class="modal-window" style="border-color:var(--neon-red)">
-                    <i class="fas fa-exclamation-triangle" style="font-size:46px;color:var(--neon-red)" aria-hidden="true"></i>
-                    <h2 class="modal-header" id="titulo-derrota" style="color:var(--neon-red)">DEFENSA COLAPSADA</h2>
-                    <p id="gameover-reason" class="mensaje-resultado"></p><p id="gameover-score" class="resultado-puntos"></p>
-                    <button class="action-btn" id="btn-retry-stage" type="button" style="background:linear-gradient(90deg,#c1121f,#780000);border-color:var(--neon-red)">REINTENTAR PARTIDA</button>
-                </div>
-            </section>
-            <!-- Cierre de campaña con la felicitación y créditos del v2, ajustados a las mecánicas presentes. -->
-            <section id="modal-final" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="titulo-final" tabindex="-1">
-                <div class="modal-window">
-                    <i class="fas fa-award" style="font-size:50px;color:var(--neon-blue)" aria-hidden="true"></i>
-                    <h2 class="modal-header" id="titulo-final">¡VICTORIA TOTAL!</h2>
-                    <h3 class="modal-sub">FELICITACIONES POR PARTE DEL GRUPO OMEGA</h3>
-                    <p class="mensaje-resultado">¡Repeliste la tormenta de meteoritos! Superaste los tres niveles y la Tierra está a salvo gracias a tus reflejos.</p>
-                    <div class="creditos-equipo"><h4>EQUIPO DE DESARROLLO ORIGINAL:</h4><p>Fredy Palomino · David Chambilla · Renzo Blas · Brandon Montiveros</p></div>
-                    <div class="proxima-entrega">PRÓXIMAMENTE: IRON FIST 2</div>
-                    <button class="action-btn" id="btn-play-again" type="button">JUGAR DE NUEVO</button>
-                    <button class="salir-resultado" id="btn-volver-menu" type="button">VOLVER AL MENÚ PRINCIPAL</button>
-                </div>
-            </section>
-            <!-- Audios locales sin autoplay. La música y los resultados se controlan por estado. -->
-            <audio id="musica-partida" src="Ciberpunk.mp3" preload="none" loop></audio>
-            <audio id="sonido-punto" src="Puntos.mp3" preload="none"></audio>
-            <audio id="sonido-victoria" src="fanfare-triumphal.mp3" preload="none"></audio>
-            <audio id="voz-victoria" src="Mensaje_Ganaste.mp3" preload="none"></audio>
-            <audio id="musica-victoria" src="Musica_Epica_Final.mp3" preload="none"></audio>
-            <audio id="sonido-derrota" src="Perdiste.mp3" preload="none"></audio>
-        </section>
-    </main>
-    <!--llamado al script js-->
-    <script src="JavaScript.js"></script>
-
-
-</body>
-
+        </main>
+        <button id="btn-fullscreen" class="fullscreen-toggle" type="button" aria-label="Activar pantalla completa" title="Pantalla completa">↗</button>
+        <div id="audio-recursos" hidden aria-hidden="true">
+        </div>
+        <script src="js/configuracion.js"></script>
+        <script src="js/motor.js"></script>
+        <script src="js/audio.js"></script>
+        <script src="JavaScript.js"></script>
+    </body>
 </html>
